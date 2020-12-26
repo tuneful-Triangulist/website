@@ -28,16 +28,27 @@
       }
     }
     
+    function insertDate() {
+      var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      var lastMod = new Date( Date.parse(document.lastModified) );
+      var month = MONTHS[ parseInt(lastMod.getMonth(), 10) ];
+      var year = lastMod.getFullYear();
+      var monthreg = /MONTH/g;
+      var yearreg = /YEAR/g;
+      $('#footer').html( $('#footer').html().replace(monthreg, month).replace(yearreg, year) );
+    }
+    
     $(window).on('resize', resize2);
     $(window).on('orientationchange', resize2);
 	    
 		$(document).ready(function() {
       resize2();
-		});
+      insertDate();
+      });
 		
 		$(window).on("load", function() {
       resize2();
-      $('#profile').fadeIn(1000);
+      $('#profile').fadeIn(2000);
       $('#header').show().css({height: '14.1em'});
       var profileHeight = getTargetHeaderHeight();
 
@@ -49,13 +60,13 @@
 
 <body>
 <div id="header">
-    <img id="profile" src="profile.png" />
+    <img id="profile" src="profile2.png" />
 </div>
 
 <div id="main">
     <div id="description">
         <span class="title"><p>Tina Zhang</p></span>
-        <p>Hello! I'm an undergraduate at Caltech in my senior year.</p>
+        <p>Hello! I'm an undergraduate senior at Caltech.</p>
       <p>
         <a href="cv.pdf">CV</a> &nbsp; &nbsp; | &nbsp; &nbsp; tina zhang at caltech dot edu
       </p>
@@ -64,7 +75,7 @@
   
   <div class="section" id="interests">
     <div class="title"><p>Research interests</p></div>
-        <p>My previous projects have largely been in quantum cryptography. I've had the good fortune to do several projects under the guidance of <a href="http://users.cms.caltech.edu/~vidick/">Thomas Vidick</a>, and we've mostly worked together on zero-knowledge proof systems and proofs of knowledge. I was also lucky enough to spend a summer under the mentorship of <a href="http://www.cs.caltech.edu/~umans/">Chris Umans</a>, with whom I thought on a few (classical) ideas related to the derandomisation of small space computing.</p>
+        <p>My previous projects have largely been in quantum cryptography. I've spent a few years working under <a href="http://users.cms.caltech.edu/~vidick/">Thomas Vidick</a>'s guidance, and I owe partly to his generous mentorship my interest in the subject of quantum computing. We've mostly worked together on zero-knowledge proof systems and proofs of knowledge. I've also had the good fortune to spend a summer under the mentorship of <a href="http://www.cs.caltech.edu/~umans/">Chris Umans</a>, with whom I thought on a few (classical) ideas related to the derandomisation of small space computing.</p>
   </div>
 
     <div class="section" id="pubs">
@@ -98,7 +109,7 @@
         <div class="entry">
             <p><b><i>Classical zero-knowledge arguments for quantum computations.</i></b></p>
             <p>Thomas Vidick, Tina Zhang.</p>
-          <p>Presented at <b>TQC '19</b> and <b>QCRYPT '19</b>. <b>Quantum</b> 4, 266 (2020); <a href="https://arxiv.org/abs/1902.217">arXiv:1902.217</a>.</p>
+          <p>Presented at <b>TQC '19</b> and <b>QCRYPT '19</b>. <b>Quantum</b> 4, 266 (2020); <a href="https://arxiv.org/abs/1902.05217">arXiv:1902.05217</a>.</p>
           <br>
           <p>
             Talks: &nbsp; <a href="https://www.youtube.com/watch?v=bZ-NfrGs498">TQC '19</a>, QCRYPT '19, <a href="https://uwaterloo.ca/institute-for-quantum-computing/programs/quantum-innovators/quantum-innovators-computer-science-and-mathematics/quantum-innovators-computer-science-and-math-participants">QI '19</a>.
@@ -109,7 +120,11 @@
   
     <div class="section" id="misc">
     <div class="title"><p>Miscellaneous</p></div>
-        <p>I am a physics major, and I fell into the path of theoretical computer science almost by accident, but I'm very glad that I did! In case you're having a hard time placing my accent: I grew up in New Zealand. In my free time, I like to draw, to write, to play the violin and to sing. I'm a great fan of fiction from the 19th century, and of the violinists <a href="https://www.youtube.com/watch?v=ngjEVKxQCWs">Hilary Hahn</a> and <a href="https://www.youtube.com/watch?v=vCKjbxTxhvY">Jascha Heifetz</a> (among others).</p>
+        <p>I am a physics major, and I fell into the path of theoretical computer science almost by accident, but I'm glad that I did! In case you're having a hard time placing my accent: I grew up in New Zealand. In my free time, I like to draw, to write, to play the violin and to sing. I'm a great fan of fiction from the 19th century, and of the violinists <a href="https://www.youtube.com/watch?v=ngjEVKxQCWs">Hilary Hahn</a> and <a href="https://www.youtube.com/watch?v=vCKjbxTxhvY">Jascha Heifetz</a> (among others).</p>
+  </div>
+  
+  <div id="footer">
+    This page last updated MONTH YEAR
   </div>
 </body>
 </html>

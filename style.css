@@ -40,6 +40,7 @@ body {
 	padding-top: 3em;
 	text-align: justify;
   font-size:14pt;
+  -webkit-text-size-adjust: 100%;
 }
 
 body.portrait {

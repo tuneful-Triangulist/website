@@ -520,7 +520,7 @@ Rontgen reported the discovery of X-rays in ##1895## AD
     <li> You'll receive <b>partial credit for being close</b>, and a <b>20% (0.2 point) bonus</b> on top of 1 point of full credit if you get the year precisely correct.
     <li> <b>Easier questions require you to be more precise:</b> you have to be closer to the correct year for the start of WWII than for the Battle of Leuctra to receive the same amount of partial credit. In general, you have to be more precise for questions relating to more recent events.*
     <li> When you load the test for the first time, the questions appear in (pseudo)random order. (Sometimes the PRG is not very good at its job, unfortunately.) There's also a sort button on the left: if you press it, it will sort the events by the dates you've already entered.
-    <li> If you reload the page, your answers will be saved.
+    <li> If you reload the page, your answers will be saved. For safety, I recommend pressing Sort before you unload the page.
     </ul>
     * <font size="-1"> It's meant to be calibrated roughly so that you receive a score (out of 1) equivalent to your percentile rank in that question (so, for example, if you were more accurate than 99% of people would be in determining the year that Plato died, you get 0.99 on that question). I assumed that people's responses would come in a normal distribution centered around the true year, and for each question I made a semi-measured guess about the standard deviation with the help of ChatGPT. </font>
     <p>
@@ -658,9 +658,17 @@ Rontgen reported the discovery of X-rays in ##1895## AD
         sortEventsHandler();
     };
 
-    window.addEventListener("beforeunload", function (event) {
+    // window.addEventListener("beforeunload", function (event) {
+    //     sortEventsHandler();
+    // });
+
+    window.addEventListener("pagehide", function (event) {
         sortEventsHandler();
     });
+
+    // document.addEventListener("focusout", function (event) {
+    //     sortEventsHandler();
+    // });
 
     if (randomizedEvents == null) {
         randomizedEvents = randomizeEvents(eventsJSON);

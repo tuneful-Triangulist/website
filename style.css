@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
+
 html {
 	background-color: #fdfdfd;
 }
@@ -35,11 +37,12 @@ html {
 body {
 	color: #323232;
 	width: 28em;
-	font-family: AvenirNext, Helvetica Neue, Helvetica, Tahoma, Verdana, sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.6;
 	margin: 0 auto;
 	padding-top: 3em;
 	text-align: justify;
-  font-size:14pt;
+    font-size: 16px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -47,7 +50,7 @@ body.portrait {
     width: 90%;
 }
 body.landscape {
-    width: 50%;
+    width: 55%;
 }
 
 a {
@@ -75,8 +78,8 @@ br {
     display: none;
 }
 #header #profile {
-    height: 14em;
-    width: 14em;
+    height: auto;
+    width: 12em;
     margin: 0 auto;
     display: none;
 }
@@ -90,7 +93,7 @@ br {
     width: 100%;
 }
 #description .title p {
-    font-weight: 500;
+    font-weight: 800;
     text-align: center;
     font-size: 2em;
     margin: 0.4em;
@@ -100,14 +103,14 @@ br {
     margin-bottom: 1.5em;
 }
 .section .title p {
-    font-weight: 500;
-    border-left: 0.3em solid #Df0025;
+    font-weight: 700;
+    border-left: 0.3em solid #2e3d54;
     padding-left: 0.6em;
     font-size: 1.3em;
 }
 .section .entry p {
-    margin: 0.2em 0;
-  text-align:left;
+    margin: 0 0;
+    text-align:left;
 }
 .section .separator {
     border-top: 1px solid #eee;
@@ -117,6 +120,10 @@ br {
 .section {
     margin-bottom: 3em;
 }
+
+/*#pubs .entry {
+    font-size: 0.85em;
+}*/
 
 #footer {
   color: #454545;
